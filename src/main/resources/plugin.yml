@@ -1,0 +1,6 @@
+name: MCUIExample
+version: '1.0.0'
+main: dev.lrxh.mcuiexample.MCUIExample
+api-version: '1.21'
+
+depend: [MCUI]
