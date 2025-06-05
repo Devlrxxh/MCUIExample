@@ -26,13 +26,14 @@ public class HealthUIComponent extends UIComponent {
 
     @Override
     public void tick(Player player) {
-        double hearts = player.getHealth() / 2;
+        double hearts = Math.round(player.getHealth()) / 2.0;
+
         Element[] bar = new Element[12];
         bar[0] = ElementSpace.FORWARDSPACE_48.createElement();
         bar[1] = ElementSpace.FORWARDSPACE_1.createElement();
 
-        for (int i = 0; i < 9; i++) {
-            int barIndex = 10 - i;
+        for (int i = 0; i < 10; i++) {
+            int barIndex = 11 - i;
             double heartIndex = i + 1;
 
             if (hearts >= heartIndex) {
@@ -44,7 +45,7 @@ public class HealthUIComponent extends UIComponent {
             }
         }
 
+
         DefaultUIRender.ACTION_BAR.render(player, bar);
     }
-
 }
