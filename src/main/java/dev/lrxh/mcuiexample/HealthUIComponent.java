@@ -13,9 +13,9 @@ public class HealthUIComponent extends UIComponent {
     private final Element empty;
 
     public HealthUIComponent() {
-        full = register("full.png", 27, 2);
-        half = register("half.png", 27, 2);
-        empty = register("empty.png", 27, 2);
+        full = register("https://i.imgur.com/tfqo2Pt.png", 27, 2);
+        half = register("https://i.imgur.com/7UwHZoK.png", 27, 2);
+        empty = register("https://i.imgur.com/fw0RByQ.png", 27, 2);
 
         full.setElementSpace(ElementSpace.BACKSPACE_2);
         half.setElementSpace(ElementSpace.BACKSPACE_2);
