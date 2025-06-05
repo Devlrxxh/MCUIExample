@@ -19,18 +19,23 @@ public class HealthUIComponent extends UIComponent {
         full = register("full.png", 27, 2);
         half = register("half.png", 27, 2);
         empty = register("empty.png", 27, 2);
+
+        full.setElementSpace(ElementSpace.BACKSPACE_2);
+        half.setElementSpace(ElementSpace.BACKSPACE_2);
+        empty.setElementSpace(ElementSpace.BACKSPACE_2);
+
         load();
     }
 
     @Override
     public void tick(Player player) {
-        double stamina = player.getHealth() / 2;
+        double hearts = player.getHealth() / 2;
         Element[] bar = new Element[10];
 
         for (int i = 0; i < 10; i++) {
-            if (stamina >= i + 1) {
+            if (hearts >= i + 1) {
                 bar[i] = full;
-            } else if (stamina >= i + 0.5) {
+            } else if (hearts >= i + 0.5) {
                 bar[i] = half;
             } else {
                 bar[i] = empty;
