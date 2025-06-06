@@ -17,9 +17,9 @@ public class HealthUIComponent extends UIComponent {
         half = register("https://i.imgur.com/7UwHZoK.png", 27, 3);
         empty = register("https://i.imgur.com/fw0RByQ.png", 27, 3);
 
-        full.setElementSpace(ElementSpace.BACKSPACE_1);
-        half.setElementSpace(ElementSpace.BACKSPACE_1);
-        empty.setElementSpace(ElementSpace.BACKSPACE_1);
+        full.setElementSpace(ElementSpace.BACKSPACE_2);
+        half.setElementSpace(ElementSpace.BACKSPACE_2);
+        empty.setElementSpace(ElementSpace.BACKSPACE_2);
 
         load();
     }
@@ -30,7 +30,7 @@ public class HealthUIComponent extends UIComponent {
 
         Element[] bar = new Element[12];
         bar[0] = ElementSpace.FORWARDSPACE_48.createElement();
-        bar[1] = ElementSpace.FORWARDSPACE_1.createElement();
+        bar[1] = ElementSpace.FORWARDSPACE_2.createElement();
 
         for (int i = 0; i < 10; i++) {
             int barIndex = 11 - i;
