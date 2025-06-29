@@ -1,10 +1,13 @@
 package dev.lrxh.mcuiexample;
 
 import dev.lrxh.mcui.component.UIComponent;
-import dev.lrxh.mcui.elements.DefaultUIRender;
 import dev.lrxh.mcui.elements.Element;
 import dev.lrxh.mcui.elements.ElementSpace;
+import dev.lrxh.mcui.elements.UIRender;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HealthUIComponent extends UIComponent {
 
@@ -28,24 +31,22 @@ public class HealthUIComponent extends UIComponent {
     public void tick(Player player) {
         double hearts = Math.round(player.getHealth()) / 2.0;
 
-        Element[] bar = new Element[12];
-        bar[0] = ElementSpace.FORWARDSPACE_48.createElement();
-        bar[1] = ElementSpace.FORWARDSPACE_2.createElement();
+        List<Element> bar = new ArrayList<>();
+        bar.add(ElementSpace.FORWARDSPACE_48.createElement());
+        bar.add(ElementSpace.FORWARDSPACE_2.createElement());
 
         for (int i = 0; i < 10; i++) {
-            int barIndex = 11 - i;
-            double heartIndex = i + 1;
+            double heartIndex = 10 - i;
 
             if (hearts >= heartIndex) {
-                bar[barIndex] = full;
+                bar.add(full);
             } else if (hearts >= heartIndex - 0.5) {
-                bar[barIndex] = half;
+                bar.add(half);
             } else {
-                bar[barIndex] = empty;
+                bar.add(empty);
             }
         }
 
-
-        DefaultUIRender.ACTION_BAR.render(player, bar);
+        UIRender.ACTION_BAR_RENDER.render(player, bar);
     }
 }
